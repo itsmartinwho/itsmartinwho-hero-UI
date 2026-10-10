@@ -4,6 +4,7 @@ import { useState, type CSSProperties, type ElementType, type FocusEvent, type R
 import { createPortal } from "react-dom";
 import { DOCK_GLYPHS, DockGlyphDefs } from "./DockGlyphs";
 import { GlassLayers } from "./GlassLayers";
+import { LINE_GLYPHS } from "./LineGlyphs";
 import type { DockGroup, DockItem, GroundName } from "./types";
 import { useFolder } from "./useFolder";
 import styles from "./Hero.module.css";
@@ -69,6 +70,14 @@ function TileFace({ item, ground }: { item: DockItem; ground: GroundName }) {
     return (
       <span className={`${styles.tile} ${styles.tilePage} ${GROUND[ground]}`}>
         <Glyph className={styles.glyph} />
+      </span>
+    );
+  }
+  if ("line" in icon) {
+    const Glyph = LINE_GLYPHS[icon.line];
+    return (
+      <span className={`${styles.tile} ${styles.tileLine}`} style={{ color: icon.color }}>
+        <Glyph className={styles.lineGlyph} />
       </span>
     );
   }

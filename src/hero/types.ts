@@ -45,12 +45,17 @@ export interface HeroPost {
 /** The dock's built-in liquid-glass glyphs (DockGlyphs). */
 export type GlyphName = "nib" | "layers" | "mic" | "plane";
 
+/** The dock's built-in line glyphs (LineGlyphs): the quiet style. */
+export type LineGlyphName = "page" | "steps" | "news" | "mail";
+
 /** The built-in tile grounds: a colour run, ultramarine to coral. */
 export type GroundName = "ultramarine" | "violet" | "magenta" | "coral";
 
 export type DockIcon =
   /** A liquid-glass glyph on a coloured, fluted ground. */
   | { glyph: GlyphName; ground?: GroundName }
+  /** A line glyph on faint glass, in `color` (white by default): quieter. */
+  | { line: LineGlyphName; color?: string }
   /** A picture filling the tile; `round` for a coin or an avatar. */
   | { image: string; round?: boolean }
   /** Your own mark (an SVG, a letter) on any background, in `color`. */

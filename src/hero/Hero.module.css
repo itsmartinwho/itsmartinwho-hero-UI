@@ -791,6 +791,21 @@
   transform-origin: 12px 10px;
 }
 
+/* The line style (LineGlyphs): a squircle of barely-there glass — a faint
+   tint and a fainter rim — with the glyph in white. */
+.tileLine {
+  color: #fff;
+  background: linear-gradient(155deg, rgb(255 255 255 / 13%), rgb(255 255 255 / 3%));
+  box-shadow:
+    0 3px 8px -4px rgb(0 0 0 / 30%),
+    inset 0 0 0 0.5px rgb(255 255 255 / 12%);
+}
+
+.lineGlyph {
+  width: 54%;
+  height: 54%;
+}
+
 /* A dock group's folder: a phone's (the desktop shows the group's tiles). A
    pane of frost on the dock's glass, the tiles small in it, as iOS draws a
    folder. */

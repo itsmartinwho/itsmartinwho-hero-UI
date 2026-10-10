@@ -197,3 +197,17 @@ export const DOCK: DockGroup[] = [
   },
   { items: [{ label: "Contact", href: "#contact", icon: { glyph: "plane" } }] },
 ];
+
+/* The same dock in the quiet style: line glyphs on faint glass. */
+export const DOCK_LINE: DockGroup[] = [
+  DOCK[0],
+  DOCK[1],
+  {
+    items: [
+      { label: "Blog", href: "#blog", icon: { line: "page" } },
+      { label: "Work", href: "#work", icon: { line: "steps" } },
+      { label: "Talks", href: "#talks", icon: { line: "news" } },
+    ],
+  },
+  { items: [{ label: "Contact", href: "#contact", icon: { line: "mail" } }] },
+];

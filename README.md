@@ -20,7 +20,7 @@ A personal-desktop hero for React. Your name sits in the corner of a wallpaper r
 - **A wallpaper under glass.** Any picture, read through [Paper Design](https://shaders.paper.design)'s fluted-glass shader. The glass fades in once the page is idle. Without WebGL the picture stays as it is.
 - **A cut-out figure.** A sharp photograph is masked by a feathered trace of its silhouette and stands on the card's bottom edge. The glass never touches it. `scripts/build-figure.mjs` makes the two files from a photo and an SVG trace. An already cut-out PNG works too.
 - **Posts as files.** Each icon is a live picture: the post's lines set in capitals and refracted through fluted glass on a 2D canvas, with an optional SVG overlay on top. They're asleep until needed: one frame is drawn, then held. A slow spotlight wakes one at a time. Hovering or focusing an icon brings its lines into focus and washes it in colour. Touch screens have no hover, so there the icons rest in that engaged look. You can use a picture or any element instead of the live icon.
-- **A dock.** Groups of links on frosted glass, with magnification and names on hover. There are four built-in liquid-glass glyphs: a nib, layers, a microphone and a paper plane. Each sits on its own colour ground and does one small thing on hover. A tile can also hold a picture or your own mark.
+- **A dock.** Groups of links on frosted glass, with magnification and names on hover. It comes with two styles of built-in glyph. The liquid-glass ones (a nib, layers, a microphone and a paper plane) each sit on their own colour ground and do one small thing on hover. The quieter line ones (a page, steps, a newspaper and an envelope) sit on faint glass. A tile can also hold a picture or your own mark.
 - **A phone layout.**
   - **Staircase:** the posts stand four, three, two and one high on the left, so the figure keeps the top and the right. Posts that don't fit go in a "More" folder.
   - **Folders:** any dock group can become a folder that opens the iOS way.
@@ -34,7 +34,7 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3000. The demo is a Next.js app: `app/page.tsx` renders the hero, and `app/demo.tsx` holds the sample posts and dock.
+Then open http://localhost:3000. The demo is a Next.js app: `app/page.tsx` renders the hero, and `app/demo.tsx` holds the sample posts and dock. `/line` shows the same hero with the dock in the line style.
 
 ## Use it in your project
 
@@ -104,8 +104,13 @@ import { Hero, FINISHES, PALETTES } from "./hero";
 **Dock icons** (`DockIcon`):
 
 - `{ glyph: "nib" | "layers" | "mic" | "plane", ground?: "ultramarine" | "violet" | "magenta" | "coral" }`. Glyph tiles take the grounds in turn if you don't name one.
+- `{ line: "page" | "steps" | "news" | "mail", color? }`. The quiet style: a 1.5-stroke line glyph in white (or `color`) on a squircle of barely-there glass.
 - `{ image, round? }`
 - `{ node, background?, color?, round? }`. Your own SVG or letters. `FINISHES` has `pastel`, `silver`, `ink` and `bone`.
+
+You can mix both glyph styles in one dock. To see the line style, run the demo and open `/line`:
+
+![The dock in the line style](docs/demo-dock-line.jpg)
 
 **Post icons:** posts with no `palette` take one from `PALETTES` in turn. `overlay` is drawn on the icon's glass, a 16:10 picture cropped to a square, so keep what matters in the middle. `image` or `icon` replace the live picture.
 
